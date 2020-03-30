@@ -1,22 +1,25 @@
 const User = require('../model/users');
 
 module.exports.profile = function(req,res){
-    if(req.cookies.user_id){
-        User.findById(req.cookies.user_id,function(err,user){
-            if(err){console.log("Error finding the user in sign-in"); return;}
-            if(user){
-                return res.render('home',{
-                    title:   'Users Page',
-                    user:   user,
-                });
-            }else{
-                res.redirect('user/sign-in');   
-            }
-        })
-    }else{
-        res.redirect('user/sign-in');
-    }
-};
+    // if(req.cookies.user_id){
+    //     User.findById(req.cookies.user_id,function(err,user){
+    //         if(err){console.log("Error finding the user in sign-in"); return;}
+    //         if(user){
+    //             return res.render('home',{
+    //                 title:   'Users Page',
+    //                 user:   user,
+    //             });
+    //         }else{
+    //             res.redirect('user/sign-in');   
+    //         }
+    //     })
+    // }else{
+    //     res.redirect('user/sign-in');
+    return res.render('users', {
+        title: 'User_Profile'
+    })
+
+    };
 
 module.exports.signUp = function(req,res){
     return res.render('user-signup',{
@@ -56,29 +59,10 @@ module.exports.create = function(req,res){
     });
 };
 
-//For Sign-In user
+//For Sign-In and create a session for a user
 module.exports.createSession = function(req,res){
-    //Finding the user in DB
-    User.findOne({email:req.body.email},function(err,user){
-        if(err){
-            console.log("Error in finding the User!!");
-            return;
-        }
-        //If user is found in the DB but password doesnt match from entered password
-        if(user){
-            if(user.password != req.body.password){
-               // window.alert("Wrong password Entered!!");
-                res.redirect('back');
-            }
-            //When everything is matching then making session for log-in
-            res.cookie('user-id',user.id);
-            return res.redirect('/user/profile');
-        }else{
-            //handle user not found
-            return res.redirect('back');
-        }
-
-    });
+    //redirecting to home page
+   return res.redirect('/user/profile');
 };
 
 
