@@ -1,7 +1,11 @@
-<body>
-    <h1>
-        Codeial/ <%= title %>
-        <p>user:    <%= user.email %></p>
-        <p>name:    <%= user.name %></p> 
-    </h1>
-</body>
+<h1>
+    Codeial:: <%= title %>
+</h1>
+
+<section id = "feed-posts">
+    <h4>POSTS BY USER</h4>
+    <form action="" id = "new-post-form" method="POST">
+        <textarea name = "content" cols= "30" rows="3" placeholder="type here"></textarea><br>
+        <input type = "submit" value="Post">
+    </form>
+</section>
