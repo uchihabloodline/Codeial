@@ -11,5 +11,8 @@ router.get('/',homeController.home);
 // router.get('/sign-up',require('./users'));
 // router.get('/sign-in',require('./users'));
 router.use('/user',require('./user'));
+router.use('/post',require('./posts'));
+router.use('/comments',require('./comments'));
+
 
 module.exports = router;

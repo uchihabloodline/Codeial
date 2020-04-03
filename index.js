@@ -12,8 +12,8 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 
-app.use(cookieParser());
 app.use(express.urlencoded());
+app.use(cookieParser());
 app.use(express.static('./assets'));
 
 app.use(expressLayouts);    //Calling layouts before routes so that layouts can be applied to every page.

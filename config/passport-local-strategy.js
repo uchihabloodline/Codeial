@@ -26,7 +26,7 @@ passport.use(new LocalStrategy({
 
 //serialize the user 
 passport.serializeUser(function(user, done){
-    done(false,user.id);
+    done(null,user.id);
 });
 
 //deserialize the id in the cookie sent through serialized way
