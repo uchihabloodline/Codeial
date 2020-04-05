@@ -6,7 +6,7 @@
     <h4>POSTS</h4>
     <% if (locals.user){ %>
     <form action="/post/create" id = "new-post-form" method="POST">
-        <textarea name = "content" cols= "30" rows="3" placeholder="type here"></textarea><br>
+        <textarea name = "content" cols= "30" rows="3" placeholder="type here" required></textarea><br>
         <input type = "submit" value="Post">
     </form>
     <% } %>
@@ -14,15 +14,20 @@
 <div id = "post-list-container">
     <ul>
         <% for (post of posts){ %>
-        <li>
+        <li>    
             <%= post.content %>
         </li>
-        <p> <%= post.user.name %> </p>
-    
+        <p> 
+            <% if(locals.user && locals.user.id == post.user.id){ %>
+            <small>
+                <a href="/post/destroy/<%= post.id %>">DELETE</a>
+            </small>
+            <%= post.user.name %> </p>
+            <% } %>
         <div class ="post-comments">
             <% if(locals.user){ %> 
             <form action="/comments/create" method="POST">
-                <input type="text" name="content" placeholder="add comment here">
+                <input type="text" name="content" placeholder="add comment here" required>
                 <input type="hidden" name="post" value="<%= post._id %>">
                 <input type="submit" value="Add comment">
             </form>
@@ -30,6 +35,21 @@
             <div class="post-comments-list">
                 <ul id = 'post-comments <%= post._id %>'>
                     <% for (comment of post.comments){ %>
+
+                        <p>
+                            <% if (locals.user && locals.user.id == comment.user.id){ %>
+                            <small>
+                                <a href="/comments/destroy/<%= comment.id %>">delete</a>
+                            </small>
+                            <% } %>
+
+                            <%= comment.content %>
+                            <br>
+                            <small>
+                                <%= comment.user.name %>
+                            </small>
+                        </p>   
+                        
                         <li>
                             <%= comment.content %>
                         </li>
