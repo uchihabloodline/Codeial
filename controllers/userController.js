@@ -10,6 +10,17 @@ module.exports.profile = function(req,res){
     });
 };
 
+module.exports.update = function(req,res){
+    if(req.params.id == req.user.id){
+    User.findByIdAndUpdate(req.params.id,{name:req.body.name, email: req.body.email}, function(err,user){
+        if(err){return res.status(500).send("internal server error!!")};
+        return res.redirect('back');
+    });
+    }else{
+        return res.status(401).send("Unauthorized");
+    }
+};
+
 module.exports.signUp = function(req,res){
     return res.render('user-signup',{
         title:  'Codeial/ sign-Up',
