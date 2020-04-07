@@ -11,6 +11,8 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const customWare = require('./config/middleware');
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -51,6 +53,8 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(customWare.setFlash);
 //MVC arch followed, any requests(GET/POST) redirects to routes folder to index.js in it
 app.use('/',require('./routes'));
 

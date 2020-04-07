@@ -62,11 +62,13 @@ module.exports.create = function(req,res){
 //For Sign-In and create a session for a user
 module.exports.createSession = function(req,res){
     //redirecting to home page
-   return res.redirect('/');
+    req.flash('success','Successfully Logged In');
+    return res.redirect('/');
 };
 
 module.exports.destroySession = function(req, res){
     req.logout();
+    req.flash('success','You have logged out');
 
     return res.redirect('/');
 };
