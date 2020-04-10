@@ -4,7 +4,7 @@ const Post =  require('../model/post')
 module.exports.create = function(req,res){
     Post.findById(req.body.post, function(err,post){
         if(err){
-            console.log("error finding the post with the id in DB!"); return;
+            console.log("error finding the post with the mentioned id in DB!"); return;
         }
         if(post){
         Comment.create({
