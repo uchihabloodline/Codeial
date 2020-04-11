@@ -1,4 +1,5 @@
 {
+    //method to submit the form data for new post using AJAX
     let createPost = function(){
         let newPostForm = $('#new-post-form');
         newPostForm.submit(function(e){
@@ -9,10 +10,10 @@
                 url:  '/post/create',
                 data:  newPostForm.serialize(),
                 success: function(data){
+                    console.log(data);
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
-                },
-                error: function(error){
+                }, error: function(error){
                     console.log(error.responseText);
                 }
             });
