@@ -1,8 +1,8 @@
-    <body>   
-        <h1>
-           <link rel="stylesheet" href="../assets/css/user_profile.css">
-           Codeial/ <%= title %>
-        </h1>
+    <body> 
+        <head>
+            <link rel="stylesheet" href="../assets/css/user_profile.css">
+        </head>  
+       <img src = "<%=user.avatar%>" alt="<%=user.name%>" width="100">
 
         <%if(user.id == profile_user.id){%> 
 

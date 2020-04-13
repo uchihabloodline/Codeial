@@ -55,6 +55,9 @@ app.use(passport.setAuthenticatedUser);
 
 app.use(flash());
 app.use(customWare.setFlash);
+
+//make the upload path available to the browser
+app.use('/upload',express.static(__dirname+'/upload'));
 //MVC arch followed, any requests(GET/POST) redirects to routes folder to index.js in it
 app.use('/',require('./routes'));
 
