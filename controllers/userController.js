@@ -20,7 +20,7 @@ module.exports.update = async function(req,res){
     // });
     // }else{
     //     return res.status(401).send("Unauthorized");
-    // }
+    // }--
     if(req.params.id == req.user.id){
         try{
             let user = await User.findById(req.params.id);
