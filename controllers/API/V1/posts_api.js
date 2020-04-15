@@ -1,6 +1,5 @@
 const Post = require('../../../model/post');
-
-
+const Comment = require('../../../model/comment');
 
 module.exports.index = async function(req,res){
 
@@ -46,7 +45,7 @@ module.exports.destroy = async function(req, res){
     }catch(err){
         console.log('********', err);
         return res.json(500, {
-            message: "Internal Server Error"
+            message: "Internal Server Error(JWT)"
         });
     }
     
