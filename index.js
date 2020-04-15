@@ -6,10 +6,10 @@ const user = require('./model/users');
 const ejs = require('ejs');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser= require('cookie-parser');
-//user for session coookie and auth
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportJWT = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const customWare = require('./config/middleware');
