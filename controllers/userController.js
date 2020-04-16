@@ -62,11 +62,13 @@ module.exports.signIn = function(req,res){
 //For Sign-Up user
 module.exports.create = function(req,res){
     if(req.body.password != req.body.confirm_password){
+        req.flash('error', 'Passwords do not match');
         return res.redirect('back');
     }
     
     User.findOne({email:req.body.email}, function(err,user){
         if(err){
+            req.flash('error', err);
             console.log("Error in finding user in the DB");
             return;
         }
@@ -79,6 +81,7 @@ module.exports.create = function(req,res){
             return res.redirect('/user/sign-in');
             })
         }else{
+            req.flash('error','User already present');
             console.log("User already Present!!");
             return res.redirect('back');
         }
