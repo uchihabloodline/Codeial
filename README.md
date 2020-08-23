@@ -8,4 +8,4 @@ MVC,Cookies,manual_auth, and many more(For Learning)
   <li>Goto root directory of the project, and run <code>npm start</code> from the terminal there to start the app server.
 </ul>
 
-<h3 style="color:blue; text-align:center">Contributions are always welcomed here. :) </h3>
+<h3 style="color:blue; text-align:center">Contributions are always welcome here. :) </h3>
