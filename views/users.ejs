@@ -1,6 +1,6 @@
     <body> 
         <head>
-            <link rel="stylesheet" href="../assets/css/user_profile.css">
+            <link rel="stylesheet" href="/css/user_profile.css">
         </head>  
        <img src = "<%=user.avatar%>" alt="<%=user.name%>" width="100">
 
@@ -14,10 +14,8 @@
                 <input type="submit" value="Update">
             </form>
         <%}else{%>
-            <p>
-                <%= profile_user.email %>   <br>
-                <%= profile_user.name %>    <br>
-            </p>
+            <p><%= profile_user.email %></p>  
+            <p><%= profile_user.name %></p>    
         <%}%>
         
     </body>

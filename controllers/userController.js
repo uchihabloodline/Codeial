@@ -1,10 +1,15 @@
 const User = require('../model/users');
 const path = require('path')
 const fs = require('fs');
+const passport = require('passport');
 
 module.exports.profile = function(req,res){
     User.findById(req.params.id, function(err,user){
-        if(err){console.log("error finding the user"); return;}
+        if(err){
+            console.log("error finding the user");
+             return;
+            }
+        console.log(passport.checkAuthentication);
             return res.render('users', {
                 title: 'User_Profile',
                 profile_user: user,
