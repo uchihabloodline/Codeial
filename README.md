@@ -1,5 +1,5 @@
 # Codeial
-MVC,Cookies,manual_auth, and many more(For Learning)
+Understanding MVC, Cookies, manual_auth, google_auth, chat engine, scss, mongo, likes-dislike relations etc [For learning]
 
 <h2>Steps to run the project nicely </h2>
 <ul>
