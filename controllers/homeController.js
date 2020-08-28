@@ -3,9 +3,8 @@ const User = require('../model/users');
 
 module.exports.home = async function(req,res){
     // console.log(req.cookies);
-    // res.cookie('something',25);  
-    // })
-
+    // res.cookie('something',25); 
+    console.log("inside home controller") 
     try{
         //populate the users of each post
         let posts = await Post.find({})

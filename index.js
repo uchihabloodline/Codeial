@@ -68,6 +68,8 @@ app.use('/upload',express.static(__dirname+'/upload'));
 //MVC arch followed, any requests(GET/POST) redirects to routes folder to index.js in it
 app.use('/',require('./routes'));
 
+//console.log("inside index.js for app.locals-->>",app.locals);
+
 app.listen(port,function(err){
     if(err){
         console.log(`Error running the server on port ${port}`);
